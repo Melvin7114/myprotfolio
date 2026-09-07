@@ -1,0 +1,432 @@
+Content is user-generated and unverified.
+
+
+Learn about artifacts
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melvin P — Video Editor & Content Creator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0A0E16;
+    --panel: #121A26;
+    --panel-line: #223047;
+    --blue: #4C8DFF;
+    --teal: #6FE0C9;
+    --text: #E9EDF3;
+    --muted: #8C9AAF;
+    --code: #0F1520;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3, .display{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  a{ color: inherit; text-decoration: none; }
+  .wrap{ max-width: 920px; margin: 0 auto; padding: 0 28px; }
+
+  /* Timeline ruler divider - the recurring motif */
+  .ruler{
+    position: relative;
+    height: 34px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .ruler svg{ width: 100%; height: 100%; display:block; }
+
+  /* Header */
+  header{
+    padding: 90px 0 60px;
+    position: relative;
+  }
+  .eyebrow-time{
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--teal);
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow-time .dot{
+    width:8px; height:8px; border-radius:50%;
+    background: var(--teal);
+    box-shadow: 0 0 8px var(--teal);
+  }
+  header h1{
+    font-size: clamp(42px, 8vw, 68px);
+    line-height: 1.02;
+    max-width: 11ch;
+  }
+  header .role{
+    margin-top: 18px;
+    font-size: 19px;
+    color: var(--muted);
+    max-width: 46ch;
+  }
+  .tool-row{
+    margin-top: 34px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .tool-pill{
+    border: 1px solid var(--panel-line);
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--panel);
+  }
+
+  section{ padding: 56px 0; }
+  .section-head{
+    display:flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    gap: 20px;
+  }
+  .section-head h2{ font-size: 28px; }
+  .section-head .count{
+    font-family:'Space Grotesk', sans-serif;
+    color: var(--muted);
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+    white-space:nowrap;
+  }
+
+  p.lede{ color: var(--muted); max-width: 60ch; font-size: 16px; }
+
+  /* Services — displayed as clip blocks on a timeline, sized loosely by duration */
+  .clip-track{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border: 1px solid var(--panel-line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .clip{
+    background: var(--panel);
+    padding: 22px 24px;
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid var(--panel-line);
+    transition: background 0.15s ease;
+  }
+  .clip:last-child{ border-bottom: none; }
+  .clip:hover{ background: #16202f; }
+  .clip .dur{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    color: var(--teal);
+    font-variant-numeric: tabular-nums;
+    border-right: 1px solid var(--panel-line);
+    padding-right: 16px;
+  }
+  .clip .info h3{
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .clip .info p{
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .clip .price{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+  }
+  .clip .price span{
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Design services - poster/banner, different visual (grid swatches, not timeline) */
+  .swatch-row{
+    display:grid;
+    grid-template-columns: 1fr auto;
+    align-items:center;
+    border: 1px solid var(--panel-line);
+    border-radius: 10px;
+    padding: 24px;
+    background: var(--panel);
+    margin-top: 16px;
+  }
+  .swatch-row h3{ font-size: 17px; margin-bottom: 4px; }
+  .swatch-row p{ color: var(--muted); font-size: 14px; }
+  .swatch-row .price{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .swatch-row .price span{
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Portfolio / drive links table */
+  .link-table{
+    border: 1px solid var(--panel-line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .link-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--panel-line);
+    background: var(--panel);
+  }
+  .link-row:last-child{ border-bottom: none; }
+  .link-row .label{ font-weight: 600; font-size: 15px; }
+  .link-row .tag{
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .link-row a.btn-link{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    color: var(--bg);
+    background: var(--teal);
+    padding: 8px 16px;
+    border-radius: 100px;
+    white-space: nowrap;
+    justify-self: end;
+  }
+  .link-row .pending{
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    justify-self: end;
+  }
+  @media (max-width: 600px){
+    .link-row{ grid-template-columns: 1fr; }
+    .link-row a.btn-link, .link-row .pending{ justify-self: start; }
+    .clip{ grid-template-columns: 1fr; }
+    .clip .dur{ border-right:none; border-bottom:1px solid var(--panel-line); padding-bottom:8px; padding-right:0; }
+    .swatch-row{ grid-template-columns: 1fr; gap: 12px; }
+  }
+
+  /* Note / thoughts callout */
+  .callout{
+    border-left: 3px solid var(--blue);
+    background: var(--panel);
+    padding: 22px 26px;
+    border-radius: 0 10px 10px 0;
+    color: var(--muted);
+    font-size: 15px;
+  }
+  .callout strong{ color: var(--text); }
+
+  /* Contact */
+  .contact-card{
+    border: 1px solid var(--panel-line);
+    border-radius: 12px;
+    padding: 40px;
+    background: linear-gradient(180deg, var(--panel), var(--code));
+    text-align: center;
+  }
+  .contact-card h2{ font-size: 30px; margin-bottom: 12px; }
+  .contact-card p{ color: var(--muted); margin-bottom: 28px; }
+  .contact-buttons{
+    display:flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 100px;
+  }
+  .btn-primary{ background: var(--blue); color: #fff; }
+  .btn-secondary{ border: 1px solid var(--panel-line); color: var(--text); }
+
+  footer{
+    padding: 40px 0 60px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow-time"><span class="dot"></span>Now editing · Coimbatore, India</div>
+    <h1>Melvin P</h1>
+    <p class="role">Video editor & content creator turning raw footage into reels, long-form cuts, and scroll-stopping posters — built in DaVinci Resolve and Canva.</p>
+    <div class="tool-row">
+      <div class="tool-pill">DaVinci Resolve</div>
+      <div class="tool-pill">Canva</div>
+      <div class="tool-pill">Subtitling — Tamil & English</div>
+      <div class="tool-pill">Reels · Long-form · Posters</div>
+    </div>
+  </header>
+</div>
+
+<div class="ruler">
+  <svg viewBox="0 0 920 34" preserveAspectRatio="none">
+    <line x1="0" y1="33" x2="920" y2="33" stroke="#223047" stroke-width="1"/>
+    <g stroke="#223047" stroke-width="1">
+      <line x1="0" y1="14" x2="0" y2="33"/><line x1="20" y1="24" x2="20" y2="33"/><line x1="40" y1="24" x2="40" y2="33"/><line x1="60" y1="24" x2="60" y2="33"/><line x1="80" y1="24" x2="80" y2="33"/>
+      <line x1="100" y1="14" x2="100" y2="33"/><line x1="120" y1="24" x2="120" y2="33"/><line x1="140" y1="24" x2="140" y2="33"/><line x1="160" y1="24" x2="160" y2="33"/><line x1="180" y1="24" x2="180" y2="33"/>
+      <line x1="200" y1="14" x2="200" y2="33"/><line x1="220" y1="24" x2="220" y2="33"/><line x1="240" y1="24" x2="240" y2="33"/><line x1="260" y1="24" x2="260" y2="33"/><line x1="280" y1="24" x2="280" y2="33"/>
+      <line x1="300" y1="14" x2="300" y2="33"/><line x1="320" y1="24" x2="320" y2="33"/><line x1="340" y1="24" x2="340" y2="33"/><line x1="360" y1="24" x2="360" y2="33"/><line x1="380" y1="24" x2="380" y2="33"/>
+      <line x1="400" y1="14" x2="400" y2="33"/><line x1="420" y1="24" x2="420" y2="33"/><line x1="440" y1="24" x2="440" y2="33"/><line x1="460" y1="24" x2="460" y2="33"/><line x1="480" y1="24" x2="480" y2="33"/>
+      <line x1="500" y1="14" x2="500" y2="33"/><line x1="520" y1="24" x2="520" y2="33"/><line x1="540" y1="24" x2="540" y2="33"/><line x1="560" y1="24" x2="560" y2="33"/><line x1="580" y1="24" x2="580" y2="33"/>
+      <line x1="600" y1="14" x2="600" y2="33"/><line x1="620" y1="24" x2="620" y2="33"/><line x1="640" y1="24" x2="640" y2="33"/><line x1="660" y1="24" x2="660" y2="33"/><line x1="680" y1="24" x2="680" y2="33"/>
+      <line x1="700" y1="14" x2="700" y2="33"/><line x1="720" y1="24" x2="720" y2="33"/><line x1="740" y1="24" x2="740" y2="33"/><line x1="760" y1="24" x2="760" y2="33"/><line x1="780" y1="24" x2="780" y2="33"/>
+      <line x1="800" y1="14" x2="800" y2="33"/><line x1="820" y1="24" x2="820" y2="33"/><line x1="840" y1="24" x2="840" y2="33"/><line x1="860" y1="24" x2="860" y2="33"/><line x1="880" y1="24" x2="880" y2="33"/><line x1="900" y1="14" x2="900" y2="33"/>
+    </g>
+  </svg>
+</div>
+
+<div class="wrap">
+
+  <section id="services">
+    <div class="section-head">
+      <h2>Video editing rates</h2>
+      <div class="count">03 formats</div>
+    </div>
+    <p class="lede" style="margin-bottom:26px;">Priced by final runtime — pick the cut length that fits your platform.</p>
+
+    <div class="clip-track">
+      <div class="clip">
+        <div class="dur">0:00–0:60</div>
+        <div class="info">
+          <h3>Reel edit</h3>
+          <p>Fast-paced short-form cut for Instagram / YouTube Shorts</p>
+        </div>
+        <div class="price">₹500 <span>/ reel</span></div>
+      </div>
+      <div class="clip">
+        <div class="dur">2:00–3:00</div>
+        <div class="info">
+          <h3>Mid-length edit</h3>
+          <p>Structured storytelling cut with pacing and transitions</p>
+        </div>
+        <div class="price">₹1,000 <span>/ video</span></div>
+      </div>
+      <div class="clip">
+        <div class="dur">~5:00</div>
+        <div class="info">
+          <h3>Long-form edit + subtitles</h3>
+          <p>Full edit with burned-in subtitles in Tamil or English</p>
+        </div>
+        <div class="price">₹1,300 <span>/ video</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="design">
+    <div class="section-head">
+      <h2>Design work</h2>
+      <div class="count">Canva</div>
+    </div>
+    <div class="swatch-row">
+      <div>
+        <h3>Poster & banner design</h3>
+        <p>Social posts, promo banners, event posters — sized for your platform</p>
+      </div>
+      <div class="price">₹100 <span>/ design</span></div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="section-head">
+      <h2>Sample work</h2>
+      <div class="count">Drive links</div>
+    </div>
+    <p class="lede" style="margin-bottom:26px;">Click through to view full-quality samples on Google Drive.</p>
+
+    <div class="link-table">
+      <div class="link-row">
+        <div>
+          <div class="label">Reel samples</div>
+          <div class="tag">Short-form edits, 0–60 sec</div>
+        </div>
+        <div class="tag">Add your Drive folder link</div>
+        <a href="#" class="pending">Link coming soon</a>
+      </div>
+      <div class="link-row">
+        <div>
+          <div class="label">Mid-length edits</div>
+          <div class="tag">2–3 min videos</div>
+        </div>
+        <div class="tag">Add your Drive folder link</div>
+        <a href="#" class="pending">Link coming soon</a>
+      </div>
+      <div class="link-row">
+        <div>
+          <div class="label">Long-form + subtitles</div>
+          <div class="tag">~5 min, Tamil / English subs</div>
+        </div>
+        <div class="tag">Add your Drive folder link</div>
+        <a href="#" class="pending">Link coming soon</a>
+      </div>
+      <div class="link-row">
+        <div>
+          <div class="label">Posters & banners</div>
+          <div class="tag">Canva design samples</div>
+        </div>
+        <div class="tag">Add your Drive folder link</div>
+        <a href="#" class="pending">Link coming soon</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="note">
+    <div class="callout">
+      <strong>A quick note on this page —</strong> I've laid out your rates and left a dedicated row for each Drive link so you can drop in your best reel, long-form edit, and poster samples once this goes live. Once you share the actual Drive folder URLs, I'll swap them into the "Link coming soon" buttons so clients can click straight through. Let me know if the rates, wording, or order of sections look right to you, or if you'd like anything changed.
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-card">
+      <h2>Let's work together</h2>
+      <p>Send your footage or brief, and I'll get back to you with a timeline.</p>
+      <div class="contact-buttons">
+        <a class="btn btn-primary" href="https://wa.me/916379188131" target="_blank">WhatsApp — 6379188131</a>
+        <a class="btn btn-secondary" href="mailto:melvin71104@gmail.com">melvin71104@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>Melvin P — Video Editor & Content Creator</footer>
+
+</body>
+</html>
+Explain
